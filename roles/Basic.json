@@ -10,8 +10,7 @@
       "recipe[ubuntu]",
       "recipe[ntp]",
       "recipe[chef-client::delete_validation]",
-      "recipe[chef-client::config]",
-      "recipe[bach_common::logs_permission]"
+      "recipe[chef-client::config]"
     ],
     "description": "Basic server",
     "chef_type": "role",
