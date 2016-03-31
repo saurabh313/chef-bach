@@ -56,11 +56,11 @@ EOF
 cd cookbooks
 
 # allow versions on cookbooks via "cookbook version"
-for cookbook in "apt 2.4.0" poise-python build-essential ubuntu cron "chef-client 4.2.4" "chef-vault 1.3.0" "ntp 1.10.1" yum logrotate yum-epel sysctl chef_handler 7-zip seven_zip "windows 1.36.6" ark sudo ulimit pam ohai "poise 1.0.12" graphite_handler java maven "krb5 2.0.0"; do
+for cookbook in "apt 2.4.0" python build-essential ubuntu cron "chef-client 4.2.4" "chef-vault 1.3.0" "ntp 1.10.1" yum logrotate yum-epel sysctl chef_handler 7-zip seven_zip "windows 1.36.6" ark sudo ulimit pam ohai "poise 1.0.12" graphite_handler java maven "krb5 2.0.0"; do
   # unless the proxy was defined this knife config will be the same as the one generated above
   if [[ ! -d ${cookbook% *} ]]; then
     # 7-zip has been depricated but recipies still depend on it, will force download
-    if [[ "$cookbook" == "7-zip" ]]; then
+    if [[ "$cookbook" == "7-zip" || "$cookbook" == "python" ]]; then
       knife cookbook site download $cookbook --config ../.chef/knife.rb --force
     else
       knife cookbook site download $cookbook --config ../.chef/knife.rb
