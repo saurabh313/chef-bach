@@ -60,7 +60,7 @@ for cookbook in "apt 2.4.0" python build-essential ubuntu cron "chef-client 4.2.
   # unless the proxy was defined this knife config will be the same as the one generated above
   if [[ ! -d ${cookbook% *} ]]; then
     # 7-zip has been depricated but recipies still depend on it, will force download
-    if [[ "$cookbook" == "7-zip" || "$cookbook" == "python" ]]; then
+    if [[ "$cookbook" == "7-zip" ]] || [[ "$cookbook" == "python" ]]; then
       knife cookbook site download $cookbook --config ../.chef/knife.rb --force
     else
       knife cookbook site download $cookbook --config ../.chef/knife.rb
